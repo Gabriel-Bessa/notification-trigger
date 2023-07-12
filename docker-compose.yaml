@@ -1,0 +1,13 @@
+version: '3'
+services:
+  REDIS:
+    container_name: REDIS
+    image: redis:5-alpine
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    environment:
+      - ALLOW_EMPTY_PASSWORD=false
+      - REDIS_PASSWORD=cGFzc3dvcmQxMjMK
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
